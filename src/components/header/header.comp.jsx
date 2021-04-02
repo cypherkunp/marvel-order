@@ -4,6 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 
 import marvelLogo from '../../assets/marvel-logo.svg';
@@ -51,12 +53,14 @@ export default function Header(props) {
         <AppBar position="fixed" className={classes.header}>
           <Toolbar disableGutters>
             <img src={marvelLogo} alt={marvelLogo} className={classes.logo} />
-            <Button variant="contained" color="primary" href="#contained-buttons" disableElevation>
-              Timeline
-            </Button>
-            <Button variant="contained" color="primary" href="#contained-buttons" disableElevation>
-              Movies
-            </Button>
+            <ButtonGroup variant="contained" disableElevation>
+              <Button id="timeline-btn" color="primary" onClick={() => props.setView('timeline')}>
+                Timeline
+              </Button>
+              <Button id="timeline-btn" color="primary" onClick={() => props.setView('movies')}>
+                Movies
+              </Button>
+            </ButtonGroup>
           </Toolbar>
         </AppBar>
       </ElevationScroll>
